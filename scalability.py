@@ -5,7 +5,7 @@ from scipy.cluster.hierarchy import linkage, fcluster
 from sklearn.preprocessing import StandardScaler
 
 class ScalableFederatedCalibrator:
-    def __init__(self, drift_threshold=1.5, window_size=5):
+    def __init__(self, drift_threshold=0.5, window_size=5):
         """
         drift_threshold: Distance to trigger a cluster split.
         window_size: MAX history kept locally (Scalability: O(1) memory).
@@ -74,7 +74,7 @@ engine = ScalableFederatedCalibrator(drift_threshold=1.5, window_size=5)
 raw_values = {
     "Aug 18": [2.8, 3.0], "Aug 19": [2.7, 2.9], "Aug 20": [2.7, 2.8],
     "Aug 21": [2.2, 2.4], "Aug 22": [2.3, 2.5], "Aug 23": [2.2, 2.4],
-    "Aug 25": [2.3, 2.5], "Aug 26": [2.2, 2.4], "Aug 27": [3.8, 4.5], # Huge Drift
+    "Aug 25": [2.3, 2.5], "Aug 26": [2.2, 2.4], "Aug 27": [3.8, 4.5], 
     "Aug 28": [2.9, 3.1], "Aug 29": [3.0, 3.2]
 }
 
